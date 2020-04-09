@@ -1,0 +1,61 @@
+static Mutex Lock = 1;
+
+static int ReadQueue = 0;
+static int EndQueue = 0;
+static int Library = indexOfLastFile;
+
+static FILE* *files;
+static FILE *outSource;
+
+char* out;
+
+Queing(char* sKey){
+int myIndex;
+boolean free = false;
+
+While(EndQueue <= Library){
+free = false;
+Lock.lock();
+
+if(ReadQueue <= Library){
+ReadQueue++;
+EndQueue = ReadQueue;
+myIndex = ReadQueue;
+free = true;
+}
+
+Lock.unlock();
+if(free){
+Search(files[myIndex],sKey);
+}
+}
+
+Lock.lock();
+concat(outSource,out);
+Lock.unlock();
+
+}
+
+Search(FILE *domain,char* sKey){
+char* trail;
+int tail;
+for(skey){
+trail += lowercase(domain[index]);
+tail++;
+}
+
+if(skey == trail){
+out += domain.path + "@" + (tail-skey)
+}
+
+while(tail<domain.size){
+trail = right(skey-1);
+trail += lowercase(domain[index]);
+tail++;
+
+if(skey == trail){
+out += domain.path + "@" + (tail-skey)
+}
+}
+
+}
