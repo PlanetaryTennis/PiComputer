@@ -1,5 +1,5 @@
-#include<mpi.h>
 #include<stdio.h>
+#include<dirent.h>
 
 char getcaseless(char in){
 	char out;
@@ -23,11 +23,24 @@ void DataFinder(char* sKey,char* fPath){
 	fclose(domain);
 }
 
+void list(char* sKey){
+	DIR *dir;
+	struct dirent *ent;
+	if ((dir = opendir ("./")) != NULL) {
+		while ((ent = readdir (dir)) != NULL) {
+			printf ("%s\n", ent->d_name);
+		}
+		closedir (dir);
+	} else {
+		return;
+	}
+}
+
 int main(int argc,char** argv){
 	MPI_Init(NULL, NULL);
 	char* sKey = argv[1];
 	printf("%s\n",sKey);
-	DataFinder(sKey,"/data/testrange.txt");
+	list(sKey);//,"./data/testrange.txt");
 	MPI_Finalize();
 	return 0;
 }
