@@ -52,10 +52,10 @@ void list(char* sKey){
 				strncat(directory, name, (sizeof(directory) - strlen(directory)) );
 //				name = directory;
 				printf("%s\n", directory);				
-				if(isFile(name) == 1){
-					printf("Hi");
-					DataFinder(sKey,directory);
-				}
+//				if(isFile(name) == 1){
+//					printf("Hi");
+//					DataFinder(sKey,directory);
+//				}
 			}
 		}
 		closedir (dir);
