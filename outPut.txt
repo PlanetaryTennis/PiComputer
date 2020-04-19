@@ -1,60 +1,438 @@
 :---:
-File Name: ./data/t02.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 14235
 :---:
-File Name: ./data/t09.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 19338
 :---:
-File Name: ./data/t07.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 22743
 :---:
-File Name: ./data/t12.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 26791
 :---:
-File Name: ./data/t13.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 29494
 :---:
-File Name: ./data/t08.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 33852
 :---:
-File Name: ./data/t01.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 34410
 :---:
-File Name: ./data/t18.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 37943
 :---:
-File Name: ./data/range.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 39031
 :---:
-File Name: ./data/t15.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 40857
 :---:
-File Name: ./data/t10.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 41121
 :---:
-File Name: ./data/t14.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 41747
 :---:
-File Name: ./data/t04.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 44099
 :---:
-File Name: ./data/testrange.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 61728
 :---:
-File Name: ./data/t19.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 64941
 :---:
-File Name: ./data/t06.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 69684
 :---:
-File Name: ./data/t05.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 86495
 :---:
-File Name: ./data/t11.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 86722
 :---:
-File Name: ./data/t03.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 87639
 :---:
-File Name: ./data/t16.txt
-Match at Character: 32
+File Name: ./data/pg1004.txt
+Match at character: 88703
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 89150
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 90139
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 96084
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 104727
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 107165
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 135094
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 140160
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 141998
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 157535
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 172622
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 174254
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 174771
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 217440
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 247457
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 251731
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 257944
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 264693
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 267790
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 269918
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 273352
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 275640
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 278520
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 285102
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 287579
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 295677
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 302474
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 307094
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 307997
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 321911
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 322129
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 322236
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 323263
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 327324
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 334991
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 337984
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 338997
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 342147
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 342840
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 343657
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 360228
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 360958
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 361901
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 370820
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 371151
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 376105
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 379544
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 386079
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 387154
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 387638
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 410383
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 411193
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 422276
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 436624
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 443912
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 452502
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 452869
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 453586
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 454100
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 460589
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 462244
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 465258
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 465781
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 475540
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 477843
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 478585
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 483824
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 484175
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 484213
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 488569
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 489523
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 490319
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 494372
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 497159
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 497881
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 498328
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 499853
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 500341
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 500863
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 501069
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 506411
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 511877
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 512329
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 518033
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 521829
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 529204
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 534397
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 536479
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 545393
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 560571
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 562599
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 567812
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 569697
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 585319
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 585885
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 586446
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 586602
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 591262
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 592226
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 597157
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 597311
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 597845
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 605681
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 606722
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 607019
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 612052
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 612828
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 614454
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 616846
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 618058
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 622460
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 622848
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 625243
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 627826
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 629288
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 631451
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 639261
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 640715
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 643186
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 650714
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 651810
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 652854
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 657784
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 657796
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 663539
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 664394
+:---:
+File Name: ./data/pg1004.txt
+Match at character: 667930

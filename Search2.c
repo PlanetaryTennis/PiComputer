@@ -41,8 +41,38 @@ void add(int location,int placed){
 }
 
 void DataFinder(char* sKey,char* directory,int location){
-//	printf("Looking for \"%s\" in %s.\n",sKey,directory);
-	add(location,32);
+	FILE *fp;
+	fp = fopen(directory, "r");
+	int l = strlen(sKey)-1;
+	char c;
+	int tracker = 0;
+	int matchers = 0;
+	for(int i = 0;i < l;i++){
+		c = getcaseless(fgetc(fp));
+		if(feof(fp)){
+			fclose(fp);
+			return;
+		}
+		tracker++;
+	}
+	while(++tracker > 0){
+		c = getcaseless(fgetc(fp));
+//		printf("%c == %c\n",c, sKey[matchers]);
+		if(feof(fp)){
+			fclose(fp);
+			printf("From %s\n",directory);
+			return;
+		}
+		if(c == sKey[matchers+1]){
+			matchers++;
+		}else matchers = 0;
+		if(matchers == l){
+			add(location,tracker-l);
+			matchers = 0;
+		}
+	}
+	fclose(fp);
+	printf("YoU cAn'T uSe PrInT sTaTmEnTs To DeBuG!\n");
 }
 
 void list(char* sKey){
@@ -60,7 +90,7 @@ void list(char* sKey){
 					strncat(directory, name, (sizeof(directory) - strlen(directory)) );
 					name = directory;
 					if(isFile(name) == 1&&(rank != 0||location%size == rank)){
-						DataFinder(sKey,name,location);
+						if(location==0)DataFinder(sKey,name,location);
 					}
 					if(rank == 0){
 						strncpy(library[location],name,sizeof(library[255]));
@@ -73,9 +103,6 @@ void list(char* sKey){
 	} else {
 		return;
 	}
-	if(rank == 0){
-		printf("%s\n",library[0]);
-	}
 }
 
 void writefile(char* sKey){
@@ -84,14 +111,12 @@ void writefile(char* sKey){
 	for(int i = 1;i < found;i++){
 		fputs(":---:\n", fp);
 		fprintf(fp,"File Name: %s\n",library[locations[i]]);
-		fprintf(fp,"Match at Character: %i\n",character[i]);
+		fprintf(fp,"Match at character: %i\n",character[i]);
 	}
-	printf("Hi\n");
 	fclose(fp);
 }
 
 void save(char* sKey){
-        printf("Process with id %i is waiting.\n",rank);
 	MPI_Barrier(MPI_COMM_WORLD);
 	int bufsize = found;
 	int charbuf[found];
@@ -105,16 +130,13 @@ void save(char* sKey){
 		MPI_Bcast(&charbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
 		MPI_Bcast(&locbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
 		if(rank == 0){
-//			printf("%i\n",bufsize);
 			for(int i = 1;i < bufsize;i++){
-				printf("%i\n%s\n",charbuf[i],library[locbuf[i]]);
 				add(locbuf[i],charbuf[i]);
 			}
 		}
 		bufsize = found;
 	}
 	if(rank == 0){
-		printf("made it.\n",rank);
 		writefile(sKey);
 	}
 }
@@ -131,10 +153,8 @@ int main(int argc,char** argv){
 	}
 	keycopy[i+1] = '\0';
 	sKey = keycopy;
-        printf("Process with id %i is looking for key word \"%s\".\n",rank, sKey);
-	list(sKey);
+        list(sKey);
 	save(sKey);
-	printf("Out?\n");
 	MPI_Finalize();
 	return 0;
 }

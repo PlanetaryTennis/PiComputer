@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<dirent.h>
+#include<string.h>
+
+char getcaseless(char in){
+	char out;
+	if(out > 64&&out < 91) out = out + 32;
+	return out;
+}
+
+void DataFinder(char* sKey,char* fPath){
+	FILE *domain;
+	printf("Got here");
+	domain = fopen(fPath,'r');
+	printf("Opened file.");
+	int length = sizeof(sKey);
+	printf("Found key length");
+	int backPointer;
+	char* stack = "";
+	for(int i = 0;i < length;i++){
+		stack += getcaseless(fgetc(domain));
+	}
+	printf("%s\n",stack);
+	fclose(domain);
+}
+
+void list(char* sKey){
+	DIR *dir;
+	char* name;
+	struct dirent *ent;
+	if ((dir = opendir ("./data/")) != NULL) {
+		while ((ent = readdir (dir)) != NULL) {
+			name = ent->d_name;
+			if(strcmp(name,".")&&strcmp(name,"..")){
+				name = "./data/";
+				name ;
+				printf("%s\n", name);
+			}
+		}
+		closedir (dir);
+	} else {
+		return;
+	}
+}
+
+int main(int argc,char** argv){
+	char* sKey = argv[1];
+	printf("%s\n",sKey);
+	list(sKey);//,"./data/testrange.txt");
+	return 0;
+}
