@@ -5,11 +5,11 @@
 #include<string.h>
 #include<mpi.h>
 
-const int maxSize = 255;
+const int maxSize = 786976;
 
 int found = 0;
-int locations[255];
-int character[255];
+int locations[786976];
+int character[786976];
 
 char library[255][255];
 
@@ -60,10 +60,9 @@ void DataFinder(char* sKey,char* directory,int location){
 //		printf("%c == %c\n",c, sKey[matchers]);
 		if(feof(fp)){
 			fclose(fp);
-			printf("From %s\n",directory);
 			return;
 		}
-		if(c == sKey[matchers+1]){
+		if(c == sKey[matchers]){
 			matchers++;
 		}else matchers = 0;
 		if(matchers == l){
@@ -90,7 +89,8 @@ void list(char* sKey){
 					strncat(directory, name, (sizeof(directory) - strlen(directory)) );
 					name = directory;
 					if(isFile(name) == 1&&(rank != 0||location%size == rank)){
-						if(location==0)DataFinder(sKey,name,location);
+						printf("Reading at %s\n",name);
+						DataFinder(sKey,name,location);
 					}
 					if(rank == 0){
 						strncpy(library[location],name,sizeof(library[255]));
@@ -108,6 +108,7 @@ void list(char* sKey){
 void writefile(char* sKey){
 	FILE *fp;
 	fp = fopen("./outPut.txt", "w+");
+	fprintf(fp,"%i matches found for %s in database.\n", found, sKey);
 	for(int i = 1;i < found;i++){
 		fputs(":---:\n", fp);
 		fprintf(fp,"File Name: %s\n",library[locations[i]]);
@@ -117,27 +118,38 @@ void writefile(char* sKey){
 }
 
 void save(char* sKey){
+	printf("Waiting\n");
 	MPI_Barrier(MPI_COMM_WORLD);
 	int bufsize = found;
 	int charbuf[found];
 	int locbuf[found];
+	int v = 1;
+	MPI_Comm_size(MPI_COMM_WORLD,&size);
 	for(int s = size-1;s > 0;s--){
+		MPI_Barrier(MPI_COMM_WORLD);
+		printf("%i\n",s);
 		if(rank == s)for(int i = 0;i < found;i++){
 			charbuf[i] = character[i];
 			locbuf[i] = locations[i];
 		}
 		MPI_Bcast(&bufsize,1,MPI_INT,s,MPI_COMM_WORLD);
-		MPI_Bcast(&charbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
-		MPI_Bcast(&locbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
-		if(rank == 0){
-			for(int i = 1;i < bufsize;i++){
-				add(locbuf[i],charbuf[i]);
+		if(bufsize != 0){
+			printf("passing directory %i.\n",s);
+			MPI_Bcast(&charbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
+			printf("passing locations %i.\n",v);
+//			MPI_Bcast(&locbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
+			if(rank == 0){
+				for(int i = 1;i < bufsize;i++){
+					add(locbuf[i],charbuf[i]);
+				}
 			}
 		}
 		bufsize = found;
 	}
+	printf("going to write\n");
 	if(rank == 0){
 		writefile(sKey);
+		printf("wrote\n");
 	}
 }
 
@@ -149,12 +161,15 @@ int main(int argc,char** argv){
 	char keycopy[128];
 	int i = 0;
 	while(sKey[i]!='\0'){
-		keycopy[i] = getcaseless(sKey[i++]);
+		keycopy[i] = getcaseless(sKey[i]);
+		i++;
 	}
-	keycopy[i+1] = '\0';
+	keycopy[i] = '\0';
 	sKey = keycopy;
         list(sKey);
 	save(sKey);
+	MPI_Barrier(MPI_COMM_WORLD);
+	printf("Error is at the end. :(\n");
 	MPI_Finalize();
 	return 0;
 }
