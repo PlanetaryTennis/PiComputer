@@ -1,0 +1,60 @@
+:---:
+File Name: ./data/t02.txt
+Match at Character: 32
+:---:
+File Name: ./data/t09.txt
+Match at Character: 32
+:---:
+File Name: ./data/t07.txt
+Match at Character: 32
+:---:
+File Name: ./data/t12.txt
+Match at Character: 32
+:---:
+File Name: ./data/t13.txt
+Match at Character: 32
+:---:
+File Name: ./data/t08.txt
+Match at Character: 32
+:---:
+File Name: ./data/t01.txt
+Match at Character: 32
+:---:
+File Name: ./data/t18.txt
+Match at Character: 32
+:---:
+File Name: ./data/range.txt
+Match at Character: 32
+:---:
+File Name: ./data/t15.txt
+Match at Character: 32
+:---:
+File Name: ./data/t10.txt
+Match at Character: 32
+:---:
+File Name: ./data/t14.txt
+Match at Character: 32
+:---:
+File Name: ./data/t04.txt
+Match at Character: 32
+:---:
+File Name: ./data/testrange.txt
+Match at Character: 32
+:---:
+File Name: ./data/t19.txt
+Match at Character: 32
+:---:
+File Name: ./data/t06.txt
+Match at Character: 32
+:---:
+File Name: ./data/t05.txt
+Match at Character: 32
+:---:
+File Name: ./data/t11.txt
+Match at Character: 32
+:---:
+File Name: ./data/t03.txt
+Match at Character: 32
+:---:
+File Name: ./data/t16.txt
+Match at Character: 32
