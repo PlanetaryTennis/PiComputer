@@ -5,11 +5,10 @@
 #include<string.h>
 #include<mpi.h>
 
-const int maxSize = 786976;
-
+const int maxSize = 7876;
 int found = 0;
-int locations[786976];
-int character[786976];
+int locations[7876];
+int character[7876];
 
 char library[255][255];
 
@@ -107,7 +106,7 @@ void list(char* sKey){
 
 void writefile(char* sKey){
 	FILE *fp;
-	fp = fopen("./outPut.txt", "w+");
+	fp = fopen("outPut.txt", "w+");
 	fprintf(fp,"%i matches found for %s in database.\n", found, sKey);
 	for(int i = 1;i < found;i++){
 		fputs(":---:\n", fp);
@@ -117,35 +116,41 @@ void writefile(char* sKey){
 	fclose(fp);
 }
 
+int v = 1;
+
 void save(char* sKey){
 	printf("Waiting\n");
 	MPI_Barrier(MPI_COMM_WORLD);
 	int bufsize = found;
 	int charbuf[found];
 	int locbuf[found];
-	int v = 1;
 	MPI_Comm_size(MPI_COMM_WORLD,&size);
 	for(int s = size-1;s > 0;s--){
 		MPI_Barrier(MPI_COMM_WORLD);
-		printf("%i\n",s);
+		printf("%i\n",found);
 		if(rank == s)for(int i = 0;i < found;i++){
 			charbuf[i] = character[i];
 			locbuf[i] = locations[i];
 		}
 		MPI_Bcast(&bufsize,1,MPI_INT,s,MPI_COMM_WORLD);
 		if(bufsize != 0){
-			printf("passing directory %i.\n",s);
+			printf("passing directory %i.\n",size-v);
+			s = size - v;
 			MPI_Bcast(&charbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
-			printf("passing locations %i.\n",v);
+			printf("passing locations %i.\n",size-v);
+			s = size - v;
 //			MPI_Bcast(&locbuf,bufsize,MPI_INT,s,MPI_COMM_WORLD);
 			if(rank == 0){
 				for(int i = 1;i < bufsize;i++){
-					add(locbuf[i],charbuf[i]);
+//					add(locbuf[i],charbuf[i]);
 				}
 			}
+			printf("Here?\n");
 		}
 		bufsize = found;
+		v++;
 	}
+	MPI_Barrier(MPI_COMM_WORLD);
 	printf("going to write\n");
 	if(rank == 0){
 		writefile(sKey);
@@ -168,7 +173,7 @@ int main(int argc,char** argv){
 	sKey = keycopy;
         list(sKey);
 	save(sKey);
-	MPI_Barrier(MPI_COMM_WORLD);
+//	MPI_Barrier(MPI_COMM_WORLD);
 	printf("Error is at the end. :(\n");
 	MPI_Finalize();
 	return 0;
