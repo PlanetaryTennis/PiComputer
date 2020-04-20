@@ -1,0 +1,27 @@
+22:07:45.248903785
+22:07:46.400791884
+:---:
+Looking for Hope
+With 4 proccesses
+22:15:27.870043596
+22:15:28.993445903
+:---:
+Looking for Hope
+With 16 proccesses
+22:15:43.575346506
+22:15:44.639749140
+:---:
+Looking for Hope
+With 16 proccesses
+22:20:20.012573853
+22:20:20.986477749
+:---:
+Looking for Hope
+With 4 proccesses
+22:20:23.883881630
+22:20:24.967001741
+:---:
+Looking for Hope
+With 1 proccesses
+22:20:28.115477796
+22:20:29.580520542
