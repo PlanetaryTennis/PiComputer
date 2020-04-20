@@ -46,6 +46,7 @@ void DataFinder(char* sKey,char* directory,int location){
 	int l = strlen(sKey)-1;
 	char c;
 	int tracker = 0;
+	int lines = 0;
 	int matchers = 0;
 	for(int i = 0;i < l;i++){
 		c = getcaseless(fgetc(fp));
@@ -60,14 +61,19 @@ void DataFinder(char* sKey,char* directory,int location){
 //		printf("%c == %c\n",c, sKey[matchers]);
 		if(feof(fp)){
 			fclose(fp);
-			printf("From %s\n",directory);
 			return;
 		}
-		if(c == sKey[matchers+1]){
+		if(c == '\n'){
+			matchers = 0;
+			tracker = 0;
+			lines++;
+		}
+		if(c == sKey[matchers]){
 			matchers++;
 		}else matchers = 0;
 		if(matchers == l){
-			add(location,tracker-l);
+//			add(location,tracker-l);
+			printf(":---:\nMatch in: %s\nOn line: %i\nCharacter: %i\n:---:\n",directory,lines,tracker-l);
 			matchers = 0;
 		}
 	}
@@ -83,18 +89,19 @@ void list(char* sKey){
 	int location = 0;
 	if ((dir = opendir ("./data/")) != NULL) {
 		while ((ent = readdir (dir)) != NULL) {
-			if(location%size == rank||rank == 0){
+			if(location%size == rank){
 				name = ent->d_name;
 				if(strcmp(name,".")&&strcmp(name,"..")){
 					strncpy(directory,"./data/",sizeof(directory));
 					strncat(directory, name, (sizeof(directory) - strlen(directory)) );
 					name = directory;
 					if(isFile(name) == 1&&(rank != 0||location%size == rank)){
-						if(location==0)DataFinder(sKey,name,location);
+						DataFinder(sKey,name,location);
+						//add(location, 32);
 					}
-					if(rank == 0){
-						strncpy(library[location],name,sizeof(library[255]));
-					}
+//					if(rank == 0){
+//						strncpy(library[location],name,sizeof(library[255]));
+//					}
 				}
 			}
 			location++;
@@ -121,7 +128,8 @@ void save(char* sKey){
 	int bufsize = found;
 	int charbuf[found];
 	int locbuf[found];
-	for(int s = size-1;s > 0;s--){
+	MPI_Comm_size(MPI_COMM_WORLD,&size);
+	for(volatile int s = size-1;s > 0;s--){
 		if(rank == s)for(int i = 0;i < found;i++){
 			charbuf[i] = character[i];
 			locbuf[i] = locations[i];
@@ -137,6 +145,7 @@ void save(char* sKey){
 		bufsize = found;
 	}
 	if(rank == 0){
+		printf("here\n");
 		writefile(sKey);
 	}
 }
@@ -149,12 +158,14 @@ int main(int argc,char** argv){
 	char keycopy[128];
 	int i = 0;
 	while(sKey[i]!='\0'){
-		keycopy[i] = getcaseless(sKey[i++]);
+		keycopy[i] = getcaseless(sKey[i]);
+		i++;
 	}
-	keycopy[i+1] = '\0';
+	keycopy[i] = '\0';
 	sKey = keycopy;
+	if(rank == 0) printf("Keyword: %s\n",sKey);
         list(sKey);
-	save(sKey);
+//	save(sKey);
 	MPI_Finalize();
 	return 0;
 }
